@@ -14,7 +14,11 @@ const CurrentUserStoreContext = createContext<StoreApi<CurrentUserState> | null>
 
 export const CurrentUserStoreProvider = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
-  const { error, isLoading, data: currentUser } = useQuery({
+  const {
+    error,
+    isLoading,
+    data: currentUser,
+  } = useQuery({
     queryFn: getMe,
     queryKey: ['getMe'],
   });
