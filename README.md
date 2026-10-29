@@ -85,11 +85,10 @@ src/
 ├── components/            # Reusable components
 │   ├── ui/               # UI components (buttons, inputs, etc.)
 │   └── data-table/       # Data table components
-├── config/               # App configuration
 ├── hooks/                # Custom React hooks
 ├── lib/                  # Utility functions
-├── navigation/           # Navigation components
 ├── stores/               # State management (Zustand)
+├── services/             # API services
 └── styles/               # Global styles and theme presets
 ```
 

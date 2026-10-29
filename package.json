@@ -6,9 +6,9 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
+    "dev": "next dev -p 3001",
     "format": "prettier --write .",
     "generate:presets": "tsx src/scripts/generate-theme-presets.ts",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ext .js,.jsx,.ts,.tsx",

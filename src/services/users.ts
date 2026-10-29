@@ -1,8 +1,8 @@
 import { apiClient } from '@/lib/api-client';
+import { CurrentUser, GetMeResponse } from '@/types';
 import { handleApiError } from '@/lib/error-handler';
-import { CurrentUser, GetMeRequest, GetMeResponse } from '@/types';
 
-const getMe = async (_data?: GetMeRequest): Promise<CurrentUser> => {
+const getMe = async (): Promise<CurrentUser> => {
   try {
     const endpoint = '/users/me';
 

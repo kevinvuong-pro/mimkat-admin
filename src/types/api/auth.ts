@@ -6,8 +6,6 @@ interface LoginRequest {
   password: string;
 }
 
-interface LogoutRequest {}
-
 interface RegisterRequest {
   email: string;
   password: string;
@@ -32,7 +30,6 @@ interface VerifyEmailResponse extends SuccessResponse<null> {}
 export type {
   // Requests
   LoginRequest,
-  LogoutRequest,
   RegisterRequest,
   VerifyEmailRequest,
 
