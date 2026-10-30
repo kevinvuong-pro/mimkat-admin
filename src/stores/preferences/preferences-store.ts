@@ -6,7 +6,7 @@ import {
   SidebarVariant,
   SidebarCollapsible,
 } from '@/lib/preferences/layout';
-import { FontKey } from '@/lib/fonts/registry';
+import { FontKey } from '@/lib/fonts/font-options';
 import { PREFERENCE_DEFAULTS } from '@/lib/preferences/preferences-config';
 import { ThemeMode, ThemePreset, ResolvedThemeMode } from '@/lib/preferences/theme';
 

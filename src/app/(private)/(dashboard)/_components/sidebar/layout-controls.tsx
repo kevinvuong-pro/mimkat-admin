@@ -25,7 +25,7 @@ import {
 import { useI18n } from '@/context/i18n';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { FontKey, fontOptions } from '@/lib/fonts/registry';
+import { FontKey, fontOptions } from '@/lib/fonts/font-options';
 import { applyThemePreset } from '@/lib/preferences/theme-utils';
 import { persistPreference } from '@/lib/preferences/preferences-storage';
 import { PREFERENCE_DEFAULTS } from '@/lib/preferences/preferences-config';

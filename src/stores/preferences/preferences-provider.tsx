@@ -9,7 +9,7 @@ import {
   SIDEBAR_VARIANT_VALUES,
   SIDEBAR_COLLAPSIBLE_VALUES,
 } from '@/lib/preferences/layout';
-import { FontKey, fontRegistry } from '@/lib/fonts/registry';
+import { FontKey, fontOptions } from '@/lib/fonts/font-options';
 import { THEME_MODE_VALUES, THEME_PRESET_VALUES } from '@/lib/preferences/theme';
 import { createPreferencesStore, type PreferencesState } from './preferences-store';
 import { applyThemeMode, subscribeToSystemTheme } from '@/lib/preferences/theme-utils';
@@ -36,7 +36,10 @@ function readDomState(): Partial<PreferencesState> {
     ),
     navbarStyle: getSafeValue(root.getAttribute('data-navbar-style'), NAVBAR_STYLE_VALUES),
     themePreset: getSafeValue(root.getAttribute('data-theme-preset'), THEME_PRESET_VALUES),
-    font: getSafeValue(root.getAttribute('data-font'), Object.keys(fontRegistry) as FontKey[]),
+    font: getSafeValue(
+      root.getAttribute('data-font'),
+      fontOptions.map(({ key }) => key) as FontKey[],
+    ),
     contentLayout: getSafeValue(root.getAttribute('data-content-layout'), CONTENT_LAYOUT_VALUES),
     sidebarVariant: getSafeValue(root.getAttribute('data-sidebar-variant'), SIDEBAR_VARIANT_VALUES),
   };

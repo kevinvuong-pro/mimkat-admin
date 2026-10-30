@@ -10,7 +10,7 @@
  * Others are flexible and can use any persistence.
  */
 
-import type { FontKey } from '@/lib/fonts/registry';
+import type { FontKey } from '@/lib/fonts/font-options';
 
 import type { ContentLayout, NavbarStyle, SidebarCollapsible, SidebarVariant } from './layout';
 import type { ThemeMode, ThemePreset } from './theme';
