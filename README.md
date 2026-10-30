@@ -74,6 +74,7 @@ pnpm dev
 - `npm run lint:fix` - Fix ESLint errors
 - `npm run format` - Format code with Prettier
 - `npm run generate:presets` - Generate theme presets
+- `npm test` - Run Vitest tests
 
 ## Project Structure
 
@@ -91,6 +92,16 @@ src/
 ├── services/             # API services
 └── styles/               # Global styles and theme presets
 ```
+
+## API errors and formatting
+
+The admin consumes the API's stable error response contract:
+`success`, `statusCode`, `error`, `message`, `timestamp`, and `path`, with an
+optional `errors` array for validation failures. Stack traces and internal
+server details are not part of client-facing responses.
+
+Dates and numbers are formatted through `src/lib/formatters.ts` according to
+the active English or Vietnamese locale.
 
 ## License
 

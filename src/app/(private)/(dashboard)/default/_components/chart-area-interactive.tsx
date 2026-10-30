@@ -24,7 +24,9 @@ import {
   SelectContent,
   SelectTrigger,
 } from '@/components/ui/select';
+import { useI18n } from '@/context/i18n';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { formatShortDate } from '@/lib/formatters';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 export const description = 'An interactive area chart';
@@ -138,6 +140,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function ChartAreaInteractive() {
+  const { locale } = useI18n();
   const isMobile = useIsMobile();
   const [timeRange, setTimeRange] = React.useState('90d');
 
@@ -224,11 +227,7 @@ export function ChartAreaInteractive() {
               tickMargin={8}
               minTickGap={32}
               tickFormatter={(value) => {
-                const date = new Date(value);
-                return date.toLocaleDateString('en-US', {
-                  month: 'short',
-                  day: 'numeric',
-                });
+                return formatShortDate(value, locale);
               }}
             />
             <ChartTooltip
@@ -237,10 +236,7 @@ export function ChartAreaInteractive() {
               content={
                 <ChartTooltipContent
                   labelFormatter={(value) => {
-                    return new Date(value).toLocaleDateString('en-US', {
-                      month: 'short',
-                      day: 'numeric',
-                    });
+                    return formatShortDate(value, locale);
                   }}
                   indicator="dot"
                 />

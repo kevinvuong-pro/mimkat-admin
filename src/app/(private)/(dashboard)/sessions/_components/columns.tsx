@@ -24,6 +24,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
+import { formatDate } from '@/lib/formatters';
 import { Button } from '@/components/ui/button';
 import { logoutDevice } from '@/services/users';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -170,13 +171,10 @@ export const sessionsColumns: ColumnDef<Session>[] = [
     header: ({ column }) => <DataTableColumnHeader column={column} title="Created" />,
     cell: ({ row }) => (
       <span className="text-muted-foreground">
-        {new Date(row.original.createdAt).toLocaleString('en-US', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-        })}
+        {formatDate(
+          row.original.createdAt,
+          typeof window !== 'undefined' && localStorage.getItem('locale') === 'vi' ? 'vi' : 'en',
+        )}
       </span>
     ),
   },

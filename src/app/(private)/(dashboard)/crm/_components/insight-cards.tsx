@@ -24,10 +24,13 @@ import {
   ChartContainer,
   ChartTooltipContent,
 } from '@/components/ui/chart';
+import { useI18n } from '@/context/i18n';
 import { Button } from '@/components/ui/button';
+import { formatNumber } from '@/lib/formatters';
 import { Card, CardTitle, CardHeader, CardFooter, CardContent } from '@/components/ui/card';
 
 export function InsightCards() {
+  const { locale } = useI18n();
   const totalLeads = leadsBySourceChartData.reduce((acc, curr) => acc + curr.leads, 0);
 
   return (
@@ -72,7 +75,7 @@ export function InsightCards() {
                             y={viewBox.cy}
                             className="fill-foreground text-3xl font-bold tabular-nums"
                           >
-                            {totalLeads.toLocaleString()}
+                            {formatNumber(totalLeads, locale)}
                           </tspan>
                           <tspan
                             x={viewBox.cx}
