@@ -39,7 +39,7 @@ A modern admin dashboard built with Next.js 16, React 19, and TypeScript.
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/kevinvuong-pro/mimkat-admin.git
 cd mimkat-admin
 ```
 
@@ -53,7 +53,19 @@ yarn install
 pnpm install
 ```
 
-3. Run the development server:
+3. Configure the API URL:
+
+```bash
+cp .env.example .env
+```
+
+Set `NEXT_PUBLIC_API_URL` in `.env` to the URL where the API is running:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
@@ -63,7 +75,7 @@ yarn dev
 pnpm dev
 ```
 
-4. Open [http://localhost:3001](http://localhost:3001) in your browser.
+5. Open [http://localhost:3001](http://localhost:3001) in your browser.
 
 ## Available Scripts
 
