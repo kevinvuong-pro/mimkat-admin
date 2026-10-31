@@ -7,12 +7,16 @@ import { fontVars } from '@/lib/fonts/registry';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeBootScript } from '@/scripts/theme-boot';
 import { QueryProvider } from '@/providers/query-provider';
+import { PwaServiceWorker } from '@/components/pwa-service-worker';
+import { PwaInstallManager } from '@/components/pwa-install-manager';
 import { PREFERENCE_DEFAULTS } from '@/lib/preferences/preferences-config';
 import { PreferencesStoreProvider } from '@/stores/preferences/preferences-provider';
 
 export const metadata: Metadata = {
   title: 'Mimkat Admin',
-  icons: { icon: '/images/logo.png' },
+  manifest: '/manifest.webmanifest',
+  icons: { icon: '/images/logo.png', apple: '/images/icon-192.png' },
+  appleWebApp: { capable: true, title: 'Mimkat Admin', statusBarStyle: 'default' },
   description:
     'Mimkat Admin is a modern, open-source dashboard starter template built with Next.js 16, Tailwind CSS v4, and shadcn/ui.',
 };
@@ -56,6 +60,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             <I18nProvider>{children}</I18nProvider>
           </QueryProvider>
           <Toaster position="top-center" />
+          <PwaServiceWorker />
+          <PwaInstallManager />
         </PreferencesStoreProvider>
       </body>
     </html>
