@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { getAccessToken } from '@/lib/auth-token-storage';
+import { PwaInstallManager } from '@/components/pwa-install-manager';
 
 const features = [
   ['Quản lý tập trung', 'Theo dõi người dùng, phiên đăng nhập và dữ liệu vận hành tại một nơi.'],
@@ -78,6 +79,7 @@ export default function Home() {
           ))}
         </section>
       </div>
+      <PwaInstallManager />
     </main>
   );
 }

@@ -8,7 +8,6 @@ import { Toaster } from '@/components/ui/sonner';
 import { ThemeBootScript } from '@/scripts/theme-boot';
 import { QueryProvider } from '@/providers/query-provider';
 import { PwaServiceWorker } from '@/components/pwa-service-worker';
-import { PwaInstallManager } from '@/components/pwa-install-manager';
 import { PREFERENCE_DEFAULTS } from '@/lib/preferences/preferences-config';
 import { PreferencesStoreProvider } from '@/stores/preferences/preferences-provider';
 
@@ -61,7 +60,6 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           </QueryProvider>
           <Toaster position="top-center" />
           <PwaServiceWorker />
-          <PwaInstallManager />
         </PreferencesStoreProvider>
       </body>
     </html>
