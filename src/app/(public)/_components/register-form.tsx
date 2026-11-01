@@ -62,7 +62,7 @@ export function RegisterForm() {
 
           setTimeout(() => {
             router.push('/login');
-          }, 1500);
+          }, 700);
         },
         onError: (error: any) => {
           toast.error(error.message || 'Registration failed. Please try again.');
