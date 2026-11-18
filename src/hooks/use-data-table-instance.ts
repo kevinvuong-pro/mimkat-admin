@@ -40,6 +40,8 @@ export function useDataTableInstance<TData, TValue>({
     pageSize: defaultPageSize ?? 10,
   });
 
+  // TanStack Table's returned API is intentionally not memoizable by the React Compiler.
+  // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data,
     columns,
