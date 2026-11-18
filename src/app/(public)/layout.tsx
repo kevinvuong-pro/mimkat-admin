@@ -15,7 +15,7 @@ export default function PublicLayout({
 
   useEffect(() => {
     if (getAccessToken()) {
-      router.replace('/');
+      router.replace('/default');
       return;
     }
 

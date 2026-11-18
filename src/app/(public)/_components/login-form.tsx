@@ -38,7 +38,7 @@ export function LoginForm() {
     if (accessToken && refreshToken) {
       setTokens(accessToken, refreshToken);
       window.history.replaceState(null, '', window.location.pathname);
-      window.location.href = '/';
+      window.location.href = '/default';
     }
   }, []);
 
@@ -55,7 +55,7 @@ export function LoginForm() {
       onError: (err) => toast.error(err.message),
       onSuccess: () => {
         form.reset();
-        window.location.href = searchParams.get('redirect') || '/';
+        window.location.href = searchParams.get('redirect') || '/default';
       },
     });
   };
