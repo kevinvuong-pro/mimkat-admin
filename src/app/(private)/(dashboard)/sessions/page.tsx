@@ -1,7 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { Download } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
+import type { PaginationState } from '@tanstack/react-table';
 
 import {
   Card,
@@ -21,15 +23,24 @@ import { DataTablePagination } from '@/components/data-table/data-table-paginati
 import { DataTableViewOptions } from '@/components/data-table/data-table-view-options';
 
 export default function SessionsPage() {
+  const [pagination, setPagination] = useState<PaginationState>({
+    pageIndex: 0,
+    pageSize: 10,
+  });
+
   const { data: sessionsData, isLoading } = useQuery({
-    queryFn: getSessions,
-    queryKey: ['sessions'],
+    queryFn: () => getSessions({ page: pagination.pageIndex + 1, limit: pagination.pageSize }),
+    queryKey: ['sessions', pagination.pageIndex, pagination.pageSize],
   });
 
   const table = useDataTableInstance({
+    pagination,
+    manualPagination: true,
     columns: sessionsColumns,
     getRowId: (row) => row.id,
     data: sessionsData?.items || [],
+    onPaginationChange: setPagination,
+    pageCount: sessionsData?.meta.totalPages ?? 0,
   });
 
   return (

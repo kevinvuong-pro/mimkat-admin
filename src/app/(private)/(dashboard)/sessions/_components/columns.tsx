@@ -122,6 +122,8 @@ export const sessionsColumns: ColumnDef<Session>[] = [
     enableHiding: false,
   },
   {
+    enableHiding: false,
+    enableSorting: false,
     accessorKey: 'deviceName',
     header: ({ column }) => <DataTableColumnHeader column={column} title="Device" />,
     cell: ({ row }) => (
@@ -130,9 +132,9 @@ export const sessionsColumns: ColumnDef<Session>[] = [
         <span className="font-medium">{row.original.deviceName}</span>
       </div>
     ),
-    enableHiding: false,
   },
   {
+    enableSorting: false,
     accessorKey: 'deviceType',
     header: ({ column }) => <DataTableColumnHeader column={column} title="Type" />,
     cell: ({ row }) => (
@@ -142,11 +144,13 @@ export const sessionsColumns: ColumnDef<Session>[] = [
     ),
   },
   {
+    enableSorting: false,
     accessorKey: 'ipAddress',
     header: ({ column }) => <DataTableColumnHeader column={column} title="IP Address" />,
     cell: ({ row }) => <span className="font-mono text-sm">{row.original.ipAddress}</span>,
   },
   {
+    enableSorting: false,
     accessorKey: 'location',
     cell: ({ row }) => <span>{row.original.location}</span>,
     header: ({ column }) => <DataTableColumnHeader column={column} title="Location" />,
@@ -167,6 +171,7 @@ export const sessionsColumns: ColumnDef<Session>[] = [
   //   ),
   // },
   {
+    enableSorting: false,
     accessorKey: 'createdAt',
     header: ({ column }) => <DataTableColumnHeader column={column} title="Created" />,
     cell: ({ row }) => (
